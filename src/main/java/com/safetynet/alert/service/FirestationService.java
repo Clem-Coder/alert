@@ -63,4 +63,19 @@ public class FirestationService {
         logger.info("The station number, with the station in this address: " + address + ",is: " + firestationList);
         return firestation.getStation();
     }
+
+    public Firestation saveFirestation(Firestation firestation) {
+        logger.info("Firestation save in database -> Address: " + firestation.getAddress() + ", station_number: " + firestation.getStation());
+        return firestationRepository.save(firestation);
+    }
+
+    public Firestation updateFirestation(Firestation firestation) {
+        logger.info("Firestation update in database -> Address: " + firestation.getAddress() + ", station_number: " + firestation.getStation());
+        return firestationRepository.save(firestation);
+    }
+
+    public void deleteFirestation(String address) {
+        logger.info("Firestation delete from database");
+        firestationRepository.deleteById(address);
+    }
 }

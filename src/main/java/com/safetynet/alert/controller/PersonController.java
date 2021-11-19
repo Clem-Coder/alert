@@ -53,7 +53,7 @@ public class PersonController {
 
     @DeleteMapping("/person")
     public void deletePerson(@RequestBody MedicalrecordAndPersonId id) {
-        logger.info("New request: delete one Person in database -> firstName: " + id.getFirstName() + ", lastName: " + id.getLastName());
+        logger.info("New request: delete Person from database -> firstName: " + id.getFirstName() + ", lastName: " + id.getLastName());
         personService.deletePerson(id);
     }
 

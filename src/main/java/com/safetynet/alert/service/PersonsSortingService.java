@@ -168,7 +168,7 @@ public class PersonsSortingService {
             emailsList.add(person.getEmail());
         }
         communityEmailAlert.setEmails(emailsList);
-        logger.info("communityEmailAlert: " + communityEmailAlert);
+        logger.info("communityEmailAlert : " + communityEmailAlert);
         return communityEmailAlert;
     }
 

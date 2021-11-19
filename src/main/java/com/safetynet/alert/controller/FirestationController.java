@@ -3,6 +3,7 @@ package com.safetynet.alert.controller;
 import com.safetynet.alert.model.Firestation;
 import com.safetynet.alert.model.Person;
 import com.safetynet.alert.model.alerts.firestationAlert.FirestationAlert;
+import com.safetynet.alert.model.idclasses.MedicalrecordAndPersonId;
 import com.safetynet.alert.service.FirestationService;
 import com.safetynet.alert.service.PersonService;
 import com.safetynet.alert.service.PersonsSortingService;
@@ -39,9 +40,22 @@ public class FirestationController {
         return personsSortingService.getFirestationAlertByPersonsList(personService.getPersonsByFirestationList(firestationService.getFirestationsByStationNumber(stationNumber)));
     }
 
-//    @PutMapping("/firestation")
-//    public Iterable<Firestation> getFirestations(@RequestBody String address){
-//        logger.info("Call getFirestations() method of FirestationController");
-//        return firestationService.getFirestations();
-//    }
+    @PostMapping("/firestation")
+    public Firestation addFirestation(@RequestBody Firestation firestation) {
+        logger.info("New request: save new Firestation in database -> Address: " + firestation.getAddress() + ", station_number: " + firestation.getStation());
+        return firestationService.saveFirestation(firestation);
+    }
+
+    @PutMapping("/firestation")
+    public Firestation uptadeFirestation(@RequestBody Firestation firestation) {
+        logger.info("New request: update one Firestation in database -> Address: " + firestation.getAddress() + ", station_number: " + firestation.getStation());
+        return firestationService.updateFirestation(firestation);
+    }
+
+    @DeleteMapping("/firestation")
+    public void deleteFirestation(@RequestBody String address) {
+        logger.info("New request: delete Firestation from database -> Address: " + address );
+        firestationService.deleteFirestation(address);
+    }
 }
+

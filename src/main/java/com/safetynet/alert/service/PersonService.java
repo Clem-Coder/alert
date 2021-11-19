@@ -55,7 +55,7 @@ public class PersonService {
 
     public Iterable<Person> getPersonsByCity(String city) {
         Iterable<Person> personList = personRepository.findByCity(city);
-        logger.info("Persons who live in this city: " + city + ",are: " + personList);
+        logger.info("Persons who live in " + city + " are: " + personList);
         return personList;
     }
 
