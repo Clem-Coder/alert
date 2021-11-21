@@ -70,13 +70,13 @@ public class PersonController {
     }
 
     @GetMapping("/fire")
-    public FireAlert getFireAlertByStationAdress(@RequestParam("address") String address) throws ParseException {
+    public FireAlert getFireAlertByStationAddress(@RequestParam("address") String address) throws ParseException {
         logger.info("New request: get fireAlert with address: " + address);
         return personsSortingService.getFireAlertByPersonsList(personService.getPersonsByFirestationList(firestationService.getFirestationsByAddress(address)));
     }
 
     @GetMapping("/personInfo")
-    public List<PersonInfoAlert> getPersonInfoAlertByFirstNameAndLastName(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName ) throws ParseException {
+    public PersonInfoAlert getPersonInfoAlertByFirstNameAndLastName(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName ) throws ParseException {
         logger.info("New request: search PersonInfoAlert with firstName: " + firstName + ", lastName: " + lastName);
         return personsSortingService.getPersonInfoAlertByPersonsList(personService.getPersonsByFirstNameAndLastName(firstName,lastName));
     }

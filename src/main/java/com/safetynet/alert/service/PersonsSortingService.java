@@ -136,9 +136,8 @@ public class PersonsSortingService {
         return fireAlert;
     }
 
-    public List<PersonInfoAlert> getPersonInfoAlertByPersonsList(Iterable<Person> personList)  {
+    public PersonInfoAlert getPersonInfoAlertByPersonsList(Iterable<Person> personList)  {
         PersonInfoAlert personInfoAlert = new PersonInfoAlert();
-        List<PersonInfoAlert> personInfoAlertList = new ArrayList<>();
         for (Person person : personList) {
             Date date = new Date();
             Date birthdate = null;
@@ -155,10 +154,9 @@ public class PersonsSortingService {
                 personInfoAlert.setEmail(person.getEmail());
                 personInfoAlert.setMedications(person.getMedicalrecord().getMedications());
                 personInfoAlert.setAllergies(person.getMedicalrecord().getAllergies());
-                personInfoAlertList.add(personInfoAlert);
         }
-        logger.info("PersonsInfoAlert are: " + personInfoAlertList);
-        return personInfoAlertList;
+        logger.info("PersonsInfoAlert is: " + personInfoAlert);
+        return personInfoAlert;
     }
 
     public CommunityEmailAlert getCommunityEmailAlertByPersonsList(Iterable<Person> personList) {
