@@ -1,12 +1,14 @@
 package com.safetynet.alert.unit.controllerTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.safetynet.alert.controller.PersonController;
 import com.safetynet.alert.service.FirestationService;
 import com.safetynet.alert.service.PersonService;
 import com.safetynet.alert.service.PersonsSortingService;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -60,6 +62,12 @@ public class PersonsControllerTest {
     public void testGetCommunityEmailAlertByStationNumber() throws Exception {
         mockMvc.perform(get("/communityEmail").param("city","Culver")).andExpect(status().isOk());
     }
+
+    @Test
+    public void testGetFloodAlertByStationNumber() throws Exception {
+        mockMvc.perform(get("/flood/stations").param("stations","2")).andExpect(status().isOk());
+    }
+
 
     //RequestMethod.POST
 

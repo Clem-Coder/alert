@@ -1,10 +1,13 @@
 package com.safetynet.alert.model.alerts.floodAlert;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class FloodAlertModel {
 
     private String firstName;
@@ -13,4 +16,8 @@ public class FloodAlertModel {
     private long age;
     private List<String> medications;
     private List<String> allergies;
+
+    public String toString(){
+        return " firstname:" + this.firstName + ", lastName:" + this.lastName + ", phone:" + this.phone + ", age:" + this.age + ", email:" + this.medications + ", allergies:" + this.allergies;
+    }
 }

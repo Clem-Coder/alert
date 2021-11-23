@@ -27,54 +27,59 @@ public class PersonControllerIT {
     //RequestMethod.GET
 
     @Test
-    public void GetPersonsIT() throws Exception {
-        mockMvc.perform(get("/persons")).andExpect(status().isOk()).andExpect(jsonPath("$[0].firstName", Matchers.is("John")));
+    public void getPersonsIT() throws Exception {
+        mockMvc.perform(get("/persons")).andExpect(status().isOk()).andExpect(jsonPath("$[1].firstName", Matchers.is("Tenley")));
     }
 
     @Test
-    public void GetChildAlertByAddressIT() throws Exception {
+    public void getChildAlertByAddressIT() throws Exception {
         mockMvc.perform(get("/childAlert").param("address","892 Downing Ct")).andExpect(status().isOk()).andExpect(jsonPath("$[0].firstName", Matchers.is("Zach")));
     }
 
     @Test
-    public void GetPhoneAlertByStationNumberIT() throws Exception {
-        mockMvc.perform(get("/phoneAlert").param("firestation","1")).andExpect(status().isOk()).andExpect(jsonPath("phones_list[0]", Matchers.is("841-874-6512")));
+    public void getPhoneAlertByStationNumberIT() throws Exception {
+        mockMvc.perform(get("/phoneAlert").param("firestation","1")).andExpect(status().isOk()).andExpect(jsonPath("phones_list[0]", Matchers.is("841-874-8547")));
     }
 
     @Test
-    public void GetFireAlertByStationAddressIT() throws Exception {
+    public void getFireAlertByStationAddressIT() throws Exception {
         mockMvc.perform(get("/fire").param("address","951 LoneTree Rd")).andExpect(status().isOk()).andExpect(jsonPath("persons_list[0].firstName", Matchers.is("Eric")));
     }
 
     @Test
-    public void GetPersonInfoAlertByFirstNameAndLastNameIT() throws Exception {
+    public void getPersonInfoAlertByFirstNameAndLastNameIT() throws Exception {
         mockMvc.perform(get("/personInfo").param("firstName","Jonanathan").param("lastName","Marrack")).andExpect(status().isOk()).andExpect(jsonPath("age", Matchers.is(32)));
     }
 
     @Test
-    public void GetCommunityEmailAlertByStationNumberIT() throws Exception {
-        mockMvc.perform(get("/communityEmail").param("city","Culver")).andExpect(status().isOk()).andExpect(jsonPath("emails[0]", Matchers.is("jaboyd@email.com")));
+    public void getCommunityEmailAlertByStationNumberIT() throws Exception {
+        mockMvc.perform(get("/communityEmail").param("city","Culver")).andExpect(status().isOk()).andExpect(jsonPath("emails[0]", Matchers.is("drk@email.com")));
+    }
+
+    @Test
+    public void getFloodAlertByStationNumberIT() throws Exception {
+        mockMvc.perform(get("/flood/stations").param("stations","2")).andExpect(status().isOk()).andExpect(jsonPath("persons_list[1].firstName", Matchers.is("Warren")));
     }
 
     //RequestMethod.POST
 
     @Test
-    public void AddPersonIT() throws Exception {
+    public void addPersonIT() throws Exception {
         mockMvc.perform(post("/person").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"Test\", \"lastName\":\"Test\"}")).andExpect(status().isOk());
     }
 
     //RequestMethod.PUT
 
     @Test
-    public void UptadePersonIT() throws Exception {
+    public void uptadePersonIT() throws Exception {
         mockMvc.perform(put("/person").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"Test\", \"lastName\":\"Test\"}")).andExpect(status().isOk());
     }
 
     //RequestMethod.DELETE
 
     @Test
-    public void DeletePersonIT() throws Exception {
-        mockMvc.perform(delete("/person").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"John\", \"lastName\":\"Boyd\"}")).andExpect(status().isOk());
+    public void deletePersonIT() throws Exception {
+        mockMvc.perform(delete("/person").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"Sophia\", \"lastName\":\"Zemicks\"}")).andExpect(status().isOk());
     }
 
 }

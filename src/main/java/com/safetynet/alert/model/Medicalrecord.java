@@ -1,9 +1,7 @@
 package com.safetynet.alert.model;
 
 import com.safetynet.alert.model.idclasses.MedicalrecordAndPersonId;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -12,8 +10,8 @@ import javax.persistence.IdClass;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity @IdClass(MedicalrecordAndPersonId.class)
 public class Medicalrecord implements Serializable {
@@ -29,6 +27,10 @@ public class Medicalrecord implements Serializable {
 
     @ElementCollection
     private List<String> allergies;
+
+    public String toString(){
+        return " firstName:" + this.firstName + ", lastName:" + this.lastName + ", birthdate:" + this.birthdate + ", medications:" + this.medications + ", allergies:" + this.allergies;
+    }
 
 
 }

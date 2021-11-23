@@ -1,15 +1,13 @@
 package com.safetynet.alert.model;
 
 import com.safetynet.alert.model.idclasses.MedicalrecordAndPersonId;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity @IdClass(MedicalrecordAndPersonId.class)
 public class Person implements Serializable {
@@ -24,11 +22,15 @@ public class Person implements Serializable {
     private String phone;
     private String email;
 
+    @Setter(AccessLevel.NONE)
     @OneToOne
     @JoinColumns({@JoinColumn (name = "firstName"),
                 @JoinColumn (name = "lastName")})
     private Medicalrecord medicalrecord;
 
+    public String toString(){
+        return "firstname:" + this.firstName + ", lastName:" + this.lastName + ", address:" + this.address + ", city:" + this.city + ", email:" + this.email + ", zip:" + this.zip + ", phone:" + this.phone;
+    }
 
 
 }

@@ -21,15 +21,14 @@ public class JsonReaderService {
 
     private static final Logger logger = LogManager.getLogger("JsonReaderService");
     private ObjectMapper mapper = new ObjectMapper();
+    private File filePath = new File("src/main/resources/data.json");
 
 
     public List<Person> readPersonsFromJsonFile() {
         logger.info("Read Persons From JsonFile");
-        String filePath = "C:\\Users\\Clem\\Desktop\\alert\\src\\main\\resources\\data.json";
-        File fileSource = new File(filePath);
         PersonsList personsList = new PersonsList();
         try {
-            personsList = mapper.readerFor(PersonsList.class).readValue(new File("C:\\Users\\Clem\\Desktop\\alert\\src\\main\\resources\\data.json"));
+            personsList = mapper.readerFor(PersonsList.class).readValue(filePath);
         } catch (IOException e) {
             System.out.println("Unable to read persons from Json File" + e.getMessage());
         }
@@ -38,12 +37,9 @@ public class JsonReaderService {
 
     public List<Firestation> readFirestationsFromJsonFile() {
         logger.info("Read Firestations From JsonFile");
-
-        String filePath = "C:\\Users\\Clem\\Desktop\\alert\\src\\main\\resources\\data.json";
-        File fileSource = new File(filePath);
         FirestationsList firestationsList = new FirestationsList();
         try {
-            firestationsList = mapper.readerFor(FirestationsList.class).readValue(new File("C:\\Users\\Clem\\Desktop\\alert\\src\\main\\resources\\data.json"));
+            firestationsList = mapper.readerFor(FirestationsList.class).readValue(filePath);
         } catch (IOException e) {
             System.out.println("Unable to read firestations from Json File" + e.getMessage());
         }
@@ -52,11 +48,9 @@ public class JsonReaderService {
 
     public List<Medicalrecord> readMedicalrecordsFromJsonFile() {
         logger.info("Read Medicalrecords From JsonFile");
-        String filePath = "C:\\Users\\Clem\\Desktop\\alert\\src\\main\\resources\\data.json";
-        File fileSource = new File(filePath);
         MedicalRecordsList medicalRecordsList= new MedicalRecordsList();
         try {
-            medicalRecordsList = mapper.readerFor(MedicalRecordsList.class).readValue(new File("C:\\Users\\Clem\\Desktop\\alert\\src\\main\\resources\\data.json"));
+            medicalRecordsList = mapper.readerFor(MedicalRecordsList.class).readValue(filePath);
         } catch (IOException e) {
             System.out.println("Unable to read medicalrecords from Json File" + e.getMessage());
         }

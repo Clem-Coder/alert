@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Data
 @RestController
 public class MedicalrecordController {
 
@@ -25,12 +24,6 @@ public class MedicalrecordController {
     Iterable<Medicalrecord> getMedicalrecords(){
         logger.info("New request: search all Medicalrecords in database");
         return medicalrecordService.getMedicalrecords();
-    }
-
-    @PostMapping("/medicalRecords")
-    Iterable<Medicalrecord> addMedicalrecords(@RequestBody List<Medicalrecord> medicalrecordList) {
-        logger.info("New request: Add Medicalrecords in database: " + medicalrecordList);
-        return medicalrecordService.saveMedicalrecords(medicalrecordList);
     }
 
     @PostMapping("/medicalRecord")

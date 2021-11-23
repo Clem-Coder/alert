@@ -155,6 +155,7 @@ public class PersonsSortingService {
                 personInfoAlert.setMedications(person.getMedicalrecord().getMedications());
                 personInfoAlert.setAllergies(person.getMedicalrecord().getAllergies());
         }
+
         logger.info("PersonsInfoAlert is: " + personInfoAlert);
         return personInfoAlert;
     }

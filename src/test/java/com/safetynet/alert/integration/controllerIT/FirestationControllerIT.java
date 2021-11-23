@@ -30,19 +30,19 @@ public class FirestationControllerIT {
     //RequestMethod.GET
 
     @Test
-    public void testGetFirestations() throws Exception {
+    public void getFirestations() throws Exception {
         mockMvc.perform(get("/firestations")).andExpect(status().isOk()).andExpect(jsonPath("$[1].address", Matchers.is("947 E. Rose Dr")));
     }
 
     @Test
-    public void testGetFirestationAlertByStationNumber() throws Exception {
-        mockMvc.perform(get("/firestation").param("stationNumber", "1")).andExpect(status().isOk()).andExpect(jsonPath("number_of_childs", Matchers.is(1)));
+    public void getFirestationAlertByStationNumber() throws Exception {
+        mockMvc.perform(get("/firestation").param("stationNumber", "3")).andExpect(status().isOk()).andExpect(jsonPath("number_of_childs", Matchers.is(3)));
     }
 
     //RequestMethod.POST
 
     @Test
-    public void testAddFirestation() throws Exception {
+    public void addFirestation() throws Exception {
         mockMvc.perform(post("/firestation").contentType(MediaType.APPLICATION_JSON).content("{\"address\": \"Test\", \"station\":\"1\"}")).andExpect(status().isOk());
     }
 
@@ -56,8 +56,8 @@ public class FirestationControllerIT {
     //RequestMethod.DELETE
 
     @Test
-    public void testDeleteFirestation() throws Exception {
-        mockMvc.perform(delete("/firestation").content("644 Gershwin Cir")).andExpect(status().isOk());
+    public void deleteFirestation() throws Exception {
+        mockMvc.perform(delete("/firestation").content("29 15th St")).andExpect(status().isOk());
     }
 
 }

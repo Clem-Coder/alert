@@ -18,8 +18,4 @@ public class MedicalRecordsList {
     public List<Medicalrecord> getMedicalrecords() {
         return medicalrecords;
     }
-
-    public void setMedicalRecordsList(List<Medicalrecord> medicalrecords) {
-        this.medicalrecords = medicalrecords;
-    }
 }

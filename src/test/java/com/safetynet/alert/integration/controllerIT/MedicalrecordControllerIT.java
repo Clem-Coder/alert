@@ -33,6 +33,11 @@ public class MedicalrecordControllerIT {
         mockMvc.perform(post("/medicalRecord").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"Test\", \"lastName\":\"Test\"}")).andExpect(status().isOk());
     }
 
+    @Test
+    public void testAddMedicalRecords() throws Exception {
+        mockMvc.perform(post("/medicalRecord").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"Test\", \"lastName\":\"Test\"}")).andExpect(status().isOk());
+    }
+
     //RequestMethod.PUT
 
     @Test
@@ -44,6 +49,8 @@ public class MedicalrecordControllerIT {
 
     @Test
     public void testDeleteMedicalRecord() throws Exception {
-        mockMvc.perform(delete("/medicalRecord").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"John\", \"lastName\":\"Boyd\"}")).andExpect(status().isOk());
+        mockMvc.perform(delete("/medicalRecord").contentType(MediaType.APPLICATION_JSON).content("{\"firstName\": \"Reginold\", \"lastName\":\"Walker\"}")).andExpect(status().isOk());
     }
+
+
 }

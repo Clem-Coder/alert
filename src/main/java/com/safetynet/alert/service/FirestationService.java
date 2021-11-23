@@ -1,6 +1,7 @@
 package com.safetynet.alert.service;
 
 import com.safetynet.alert.model.Firestation;
+import com.safetynet.alert.model.Medicalrecord;
 import com.safetynet.alert.model.Person;
 import com.safetynet.alert.repository.FirestationRepository;
 import org.apache.logging.log4j.LogManager;
@@ -20,7 +21,7 @@ public class FirestationService {
     FirestationRepository firestationRepository;
 
     public Iterable<Firestation> saveFirestations(List<Firestation> firestations) {
-        logger.info("Firestations add in database" + firestations);
+        logger.info("Firestations add in database" + firestations.toString());
         return firestationRepository.saveAll(firestations);
     }
 
@@ -60,7 +61,7 @@ public class FirestationService {
         Firestation firestation = new Firestation();
         for (Firestation firestationInList : firestationList)
             firestation = firestationInList;
-        logger.info("The station number, with the station in this address: " + address + ",is: " + firestationList);
+        logger.debug("The station number, with the station in this address: " + address + ",is: " + firestationList);
         return firestation.getStation();
     }
 

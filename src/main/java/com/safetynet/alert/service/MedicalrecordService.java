@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,7 +23,11 @@ public class MedicalrecordService {
 
     public Iterable<Medicalrecord> getMedicalrecords(){
         Iterable<Medicalrecord> medicalrecordList = medicalrecordRepository.findAll();
-        logger.info("Medicalrecords in database are: " + medicalrecordList);
+        List<String> medicalrecords = new ArrayList<>();
+        for (Medicalrecord m : medicalrecordList){
+            medicalrecords.add(m.getFirstName() + " " + m.getLastName());
+        }
+        logger.info("Medicalrecords in database are: " + medicalrecords);
         return medicalrecordList;
     }
 
