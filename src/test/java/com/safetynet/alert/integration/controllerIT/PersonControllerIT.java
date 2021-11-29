@@ -28,7 +28,7 @@ public class PersonControllerIT {
 
     @Test
     public void getPersonsIT() throws Exception {
-        mockMvc.perform(get("/persons")).andExpect(status().isOk()).andExpect(jsonPath("$[1].firstName", Matchers.is("Tenley")));
+        mockMvc.perform(get("/persons")).andExpect(status().isOk()).andExpect(jsonPath("$[1].firstName", Matchers.is("Jacob")));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class PersonControllerIT {
 
     @Test
     public void getPhoneAlertByStationNumberIT() throws Exception {
-        mockMvc.perform(get("/phoneAlert").param("firestation","1")).andExpect(status().isOk()).andExpect(jsonPath("phones_list[0]", Matchers.is("841-874-8547")));
+        mockMvc.perform(get("/phoneAlert").param("firestation","1")).andExpect(status().isOk()).andExpect(jsonPath("phones_list[0]", Matchers.is("841-874-6512")));
     }
 
     @Test
@@ -53,12 +53,12 @@ public class PersonControllerIT {
 
     @Test
     public void getCommunityEmailAlertByStationNumberIT() throws Exception {
-        mockMvc.perform(get("/communityEmail").param("city","Culver")).andExpect(status().isOk()).andExpect(jsonPath("emails[0]", Matchers.is("drk@email.com")));
+        mockMvc.perform(get("/communityEmail").param("city","Culver")).andExpect(status().isOk()).andExpect(jsonPath("emails[0]", Matchers.is("jaboyd@email.com")));
     }
 
     @Test
     public void getFloodAlertByStationNumberIT() throws Exception {
-        mockMvc.perform(get("/flood/stations").param("stations","2")).andExpect(status().isOk()).andExpect(jsonPath("persons_list[1].firstName", Matchers.is("Warren")));
+        mockMvc.perform(get("/flood/stations").param("stations","4")).andExpect(status().isOk()).andExpect(jsonPath("persons_list[0].firstName", Matchers.is("Tony")));
     }
 
     //RequestMethod.POST

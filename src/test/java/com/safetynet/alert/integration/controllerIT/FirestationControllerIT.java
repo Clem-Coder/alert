@@ -31,7 +31,7 @@ public class FirestationControllerIT {
 
     @Test
     public void getFirestations() throws Exception {
-        mockMvc.perform(get("/firestations")).andExpect(status().isOk()).andExpect(jsonPath("$[1].address", Matchers.is("947 E. Rose Dr")));
+        mockMvc.perform(get("/firestations")).andExpect(status().isOk()).andExpect(jsonPath("$[1].address", Matchers.is("908 73rd St")));
     }
 
     @Test
