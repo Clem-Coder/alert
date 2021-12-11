@@ -19,6 +19,10 @@ import java.util.List;
 
 public class JsonReaderService {
 
+    /**
+     * here are all the methods used to read datas from the data.json file, and put them into h2 database
+     */
+
     private static final Logger logger = LogManager.getLogger("JsonReaderService");
     private ObjectMapper mapper = new ObjectMapper();
     private File filePath = new File("src/main/resources/data.json");

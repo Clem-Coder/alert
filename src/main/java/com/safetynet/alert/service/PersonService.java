@@ -17,6 +17,10 @@ import java.util.Optional;
 @Service
 public class PersonService {
 
+    /**
+     * here are all the methods use to manipulate (Create,read, update & delete) datas from firestation table
+     */
+
     private static final Logger logger = LogManager.getLogger("PersonService");
 
     @Autowired

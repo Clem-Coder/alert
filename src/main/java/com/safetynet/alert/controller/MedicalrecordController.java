@@ -15,6 +15,10 @@ import java.util.List;
 @RestController
 public class MedicalrecordController {
 
+    /**
+     * here are all the methods use to manipulate (Create,read, update & delete) datas from medicalrecord table
+     */
+
     private static final Logger logger = LogManager.getLogger("MedicalrecordController");
 
     @Autowired

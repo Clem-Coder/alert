@@ -6,6 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PersonRepository extends CrudRepository <Person, MedicalrecordAndPersonId> {
 
+    /**
+     * here are all the methods used to access and manipulate datas in person table
+     */
+
     public Iterable<Person> findByAddress (String address);
 
     public Iterable<Person> findByFirstNameAndLastName(String firstName, String lastName);

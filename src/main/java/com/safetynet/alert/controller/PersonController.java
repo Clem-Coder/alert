@@ -22,6 +22,10 @@ import java.util.List;
 @RestController
 public class PersonController {
 
+    /**
+     * here are all the methods use to manipulate (Create,read, update & delete) datas from person table
+     */
+
     private static final Logger logger = LogManager.getLogger("PersonController");
 
     @Autowired

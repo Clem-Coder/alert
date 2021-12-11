@@ -15,6 +15,10 @@ import java.util.List;
 @Service
 public class MedicalrecordService {
 
+    /**
+     * here are all the methods use to manipulate (Create,read, update & delete) datas from medicalrecord table
+     */
+
     private static final Logger logger = LogManager.getLogger("MedicalrecordService");
 
     @Autowired

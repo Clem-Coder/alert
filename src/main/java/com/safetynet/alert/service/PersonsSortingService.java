@@ -27,6 +27,11 @@ import static com.safetynet.alert.model.constants.DateConstant.ONE_YEAR_IN_MILLI
 @Service
 public class PersonsSortingService {
 
+    /**
+     * This class is maybe the most important of this application. Contain all the methods to transfer datas from
+     * the DAO (data access object) into the DTO (data transfer object)
+     */
+
     private static final Logger logger = LogManager.getLogger("PersonsSortingService");
 
     @Autowired
