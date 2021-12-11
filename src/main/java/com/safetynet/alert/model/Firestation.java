@@ -1,5 +1,6 @@
 package com.safetynet.alert.model;
 
+import com.safetynet.alert.model.idclasses.FirestationId;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,10 +10,12 @@ import java.util.List;
 @Getter
 @Setter()
 @NoArgsConstructor
-@Entity
+@Entity @IdClass(FirestationId.class)
 public class Firestation {
+
     @Id
     private String address;
+
     private int station;
 
     @Setter(AccessLevel.NONE)

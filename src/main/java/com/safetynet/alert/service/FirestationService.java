@@ -3,6 +3,7 @@ package com.safetynet.alert.service;
 import com.safetynet.alert.model.Firestation;
 import com.safetynet.alert.model.Medicalrecord;
 import com.safetynet.alert.model.Person;
+import com.safetynet.alert.model.idclasses.FirestationId;
 import com.safetynet.alert.repository.FirestationRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -79,8 +80,8 @@ public class FirestationService {
         return firestationRepository.save(firestation);
     }
 
-    public void deleteFirestation(String address) {
+    public void deleteFirestation(FirestationId id) {
         logger.info("Firestation delete from database");
-        firestationRepository.deleteById(address);
+        firestationRepository.deleteById(id);
     }
 }

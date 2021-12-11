@@ -3,6 +3,7 @@ package com.safetynet.alert.controller;
 import com.safetynet.alert.model.Firestation;
 import com.safetynet.alert.model.Person;
 import com.safetynet.alert.model.alerts.firestationAlert.FirestationAlert;
+import com.safetynet.alert.model.idclasses.FirestationId;
 import com.safetynet.alert.model.idclasses.MedicalrecordAndPersonId;
 import com.safetynet.alert.service.FirestationService;
 import com.safetynet.alert.service.PersonService;
@@ -57,9 +58,9 @@ public class FirestationController {
     }
 
     @DeleteMapping("/firestation")
-    public void deleteFirestation(@RequestBody String address) {
-        logger.info("New request: delete Firestation from database -> Address: " + address );
-        firestationService.deleteFirestation(address);
+    public void deleteFirestation(@RequestBody FirestationId id) {
+        logger.info("New request: delete Firestation from database -> Address: " + id.getAddress() );
+        firestationService.deleteFirestation(id);
     }
 }
 
