@@ -57,7 +57,7 @@ public class FirestationControllerIT {
 
     @Test
     public void deleteFirestation() throws Exception {
-        mockMvc.perform(delete("/firestation").content("29 15th St")).andExpect(status().isOk());
+        mockMvc.perform(delete("/firestation").contentType(MediaType.APPLICATION_JSON).content("{\"address\": \"908 73rd St\"}")).andExpect(status().isOk());
     }
 
 }
